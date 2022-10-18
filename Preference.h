@@ -114,4 +114,18 @@ float h, t;
 #define mixerOn digitalWrite(mixer,LOW)
 #define mixerOff digitalWrite(mixer,HIGH)
 
+
+// MQ Gas Sensors
+#define redLed 12
+#define greenLed 11
+#define buzzer 10
+#define smokeA0 A5
+int sensorThres = 400;
+#define normal digitalWrite(redLed,LOW)
+#define normal_1 digitalWrite(greenLed,HIGH)
+#define normal_buzzer digitalWrite(buzzer,LOW)
+#define danger digitalWrite(redLed,HIGH)
+#define danger_1 digitalWrite(greenLed,LOW)
+#define danger_buzzer digitalWrite(buzzer,HIGH)
+
 #endif
