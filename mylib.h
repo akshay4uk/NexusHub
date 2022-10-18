@@ -24,6 +24,7 @@ class MyLib_ {
     float wt_sensor();
     float ec_sensor();
     float ph_sensor();
+    void Gas_Sensor();
 
 };
 
