@@ -1,8 +1,7 @@
 #include "MyLib.h"
 #include "Preference.h"
 
-void MyLib_::begin() {
-
+void MyLib_::begin(){
   gprsSerial.begin(9600);
   Serial.begin(9600);
   sensors.begin();
@@ -11,6 +10,7 @@ void MyLib_::begin() {
   dht.begin();
   rtc.begin();
   SD.begin(53);
+  
 
   // SD card verification
   while (!Serial) {
@@ -431,6 +431,28 @@ void MyLib_::online() {
   gprsSerial.println("AT+CIPSHUT");//close the connection
   delay(100);
   ShowSerialData();
+}
+void MyLib_::Gas_Sensor() {
+   int analogSensor = analogRead(smokeA0);
+
+  Serial.print("Pin A0: ");
+  Serial.println(analogSensor);
+  // Checks if it has reached the threshold value
+  if (analogSensor > sensorThres)
+  {
+   danger;
+   danger_1;
+   
+  
+  }
+  else
+  {
+    normal;
+    normal_1;
+   
+  }
+  delay(100);
+  
 }
 
 void MyLib_::ShowSerialData() {
