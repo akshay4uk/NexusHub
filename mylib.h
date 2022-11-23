@@ -12,6 +12,7 @@ class MyLib_ {
     MyLib_ &operator=(const MyLib_ &) = delete;
 
   public:
+  void Ultra_Sonic2();
 
     void begin();
     void datalog();
@@ -25,6 +26,8 @@ class MyLib_ {
     float ec_sensor();
     float ph_sensor();
     void Gas_Sensor();
+    void Ultra_Sonic1();
+   // void Ultra_Sonic2();
 
 };
 
