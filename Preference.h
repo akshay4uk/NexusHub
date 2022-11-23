@@ -128,4 +128,31 @@ int sensorThres = 400;
 #define danger_1 digitalWrite(greenLed,LOW)
 #define danger_buzzer digitalWrite(buzzer,HIGH)
 
+
+// Ultra Sonic Sensors for Water Level/Nutricient Level Measurement of Bottom Tank
+#include "NewPing.h"
+#define TRIGGER_PIN1 22
+#define ECHO_PIN1 23
+#define MAX_DISTANCE 400
+#define PUMP_ONE 7
+#define bottom_tank_full_on  digitalWrite(PUMP_ONE,LOW)
+#define bottom_tank_Notfull_off  digitalWrite(PUMP_ONE,HIGH)
+NewPing sonar1(TRIGGER_PIN1, ECHO_PIN1, MAX_DISTANCE);
+float distance1,duration1;
+int iteration =5;
+
+//Ultra Sonic Sensors for Water Level/Nutricient Level Measurement of Top Tank.
+
+#define TRIGGER_PIN2 24
+#define ECHO_PIN2 25
+#define MAX_DISTANCE 400
+#define PUMP_TWO 7
+#define top_tank_full_on  digitalWrite(PUMP_TWO,LOW)
+#define top_tank_Notfull_off  digitalWrite(PUMP_TWO,HIGH)
+NewPing sonar2(TRIGGER_PIN2, ECHO_PIN2, MAX_DISTANCE);
+float distance2,duration2;
+
+
+
+
 #endif

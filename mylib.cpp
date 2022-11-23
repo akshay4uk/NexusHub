@@ -136,8 +136,16 @@ void MyLib_::begin(){
   nutOff;
   pinMode(ec_isol, OUTPUT);
   pinMode(ec_gnd, OUTPUT);
+  pinMode(PUMP_ONE,OUTPUT);
+  
   ec_isol_Off;
   ec_gnd_On;
+
+  //Bottompump Ultasonic Sensors
+
+  
+ // bottom_tank_full_on;
+  //bottom_tank_full_on
 }
 
 // Sensing function
@@ -454,6 +462,57 @@ void MyLib_::Gas_Sensor() {
   delay(100);
   
 }
+//Bottom Tank Ultrasonic Sensors
+
+void MyLib_::Ultra_Sonic1() {
+   duration1 = sonar1.ping_median(iteration);
+  
+  distance1= (duration1/2)*0.0343;
+  
+  Serial.print("distance =");
+  
+  if(distance1<=5)
+  {
+  Serial.println(distance1);
+  bottom_tank_full_on ;
+    Serial.println("Water Level is full ");
+    
+  }
+  else{
+   Serial.println(distance1);
+  bottom_tank_Notfull_off;
+    delay(500);
+   }
+  delay(500);
+  
+}
+//Top Tank Sensors
+
+void MyLib_::Ultra_Sonic2() {
+   duration2 = sonar2.ping_median(iteration);
+  
+  distance2= (duration2/2)*0.0343;
+  
+  Serial.print("distance =");
+  
+  if(distance2<=5)
+  {
+  Serial.println(distance2);
+  top_tank_full_on ;
+    Serial.println("Water Level is full ");
+    
+  }
+  else{
+   Serial.println(distance2);
+  top_tank_Notfull_off;
+    delay(500);
+   }
+  delay(500);
+  
+}
+
+
+
 
 void MyLib_::ShowSerialData() {
   while (gprsSerial.available() != 0)
